@@ -31,8 +31,8 @@ class UploadActivityController extends Controller {
                     $data['activity']['date'],
                     $data['activity']['description'],
                     $data['activity']['data'][0]['time'], // Vous pouvez ajuster cela en fonction de vos besoins
-                    $distance, // Remplacez $distance par la distance calculée à partir des données
-                    $averageSpeed, // Remplacez $averageSpeed par la vitesse moyenne calculée
+                    0.0, // Remplacez $distance par la distance calculée à partir des données
+                    0.0, // Remplacez $averageSpeed par la vitesse moyenne calculée
                     $maxSpeed, // Remplacez $maxSpeed par la vitesse maximale calculée
                     $totalAltitude, // Remplacez $totalAltitude par l'altitude totale calculée
                     $averageHeartRate, // Remplacez $averageHeartRate par la fréquence cardiaque moyenne calculée
