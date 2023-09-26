@@ -29,23 +29,28 @@ class AddUserController extends Controller {
         
         // Vérifiez si l'adresse e-mail est au format correct
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "L'adresse e-mail n'est pas au format correct";
-            echo "<br><br><a href='/'>Retour à la page d'accueil</a>";
+            // redirigez l'utilisateur vers une page d'erreur de connexion
+            header("Location: /user_add_invalid");
         } elseif ($existingUser) {
-            // Un utilisateur avec le même email existe déjà
-            echo "Un utilisateur avec cet email existe déjà.";
-            echo "<br><br><a href='/'>Retour à la page d'accueil</a>";
+            // Un utilisateur avec le même email existe déjà redirigez l'utilisateur vers une page d'erreur de connexion
+            header("Location: /user_add_invalid");
         } elseif (strlen($password) < 6) {
-            // Le mot de passe est trop court
-            echo "Le mot de passe doit contenir au moins 6 caractères.";
-            echo "<br><br><a href='/'>Retour à la page d'accueil</a>";
+            // Le mot de passe est trop court redirigez l'utilisateur vers une page d'erreur de connexion
+            header("Location: /user_add_invalid");
         } else {
             // Aucun utilisateur avec le même email trouvé, mot de passe valide, et e-mail au bon format, insérez le nouvel utilisateur dans la base de données
             $user = new User();
             $user->init(null, $lastName, $firstName, $birthDate, $gender, $height, $weight, $email, $password);
             $userDAO->insert($user);
-            echo "L'utilisateur a été ajouté avec succès.";
-            echo "<br><br><a href='/'>Retour à la page d'accueil</a>";
+            // Sauvegardez userId, le mail, le nom et le prénom de l'utilisateur dans la session
+            session_start();
+            $_SESSION['userId'] = $user->getUserId();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['firstName'] = $user->getFirstName();
+            $_SESSION['lastName'] = $user->getLastName();
+
+            // Redirigez l'utilisateur
+            $this->render('user_add_valid', []);
         }
     }
 }

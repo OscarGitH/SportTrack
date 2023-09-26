@@ -61,6 +61,10 @@ class User {
         return $this->password;
     }
 
+    public function setUserId($userId): void {
+        $this->userId = $userId;
+    }
+
     public function __toString(): string {
         return "User : userId = " . $this->userId . ", lastName = " . $this->lastName . ", firstName = " . $this->firstName . ", birthDate = " . $this->birthDate . ", gender = " . $this->gender . ", height = " . $this->height . ", weight = " . $this->weight . ", email = " . $this->email . ", password = " . $this->password;
     }

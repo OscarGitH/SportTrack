@@ -13,16 +13,25 @@
     <header>
         <div class="menu">
             <a href="/"><img src="img/sporttrack.png" alt="SportTrack Logo"></a>
-            <a href="connect">SE CONNECTER</a>
-            <a href="user_add">S'INSCRIRE</a>
-            <a class="myaccount" href="myaccount/myaccount.html">MON COMPTE</a>
+            <?php if (isset($_SESSION['userId'])): ?>
+                <a href="disconnect">SE DÉCONNECTER</a>
+                <a class="myaccount" href="my_account">MON COMPTE</a>
+            <?php else: ?>
+                <a href="connect">SE CONNECTER</a>
+                <a href="user_add">S'INSCRIRE</a>
+            <?php endif; ?>
         </div>
     </header>
     
     <main>
         <div class="conteneur">
-            <p class="explication">SportTrack permet à des sportifs disposant d’une montre "cardio/gps" de pouvoir sauvegarder et gérer des données de position et de fréquence cardiaque</p>
-            <a class="signuptext" href="user_add">Créer un compte</a>
+            <?php if (!isset($_SESSION['userId'])): ?>
+                <p class="explication">SportTrack permet à des sportifs disposant d’une montre "cardio/gps" de pouvoir sauvegarder et gérer des données de position et de fréquence cardiaque</p>
+                <a class="signuptext" href="user_add">Créer un compte</a>
+            <?php else: ?>
+                <p class="explication">Bienvenue, <?php echo $_SESSION['firstName']; ?> !</p>
+                <a class="myaccount" href="my_account">MON COMPTE</a>
+            <?php endif; ?>
         </div>
     </main>
 

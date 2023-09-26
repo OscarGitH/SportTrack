@@ -24,16 +24,19 @@ class ConnectUserController extends Controller {
             $user = $userDAO->connectUserByEmail($email, $password);
 
             if ($user !== null) {
-                // La connexion est réussie, sauvegardez userId dans une variable de session
+                // Sauvegardez userId, le mail, le nom et le prénom de l'utilisateur dans la session
                 session_start();
                 $_SESSION['userId'] = $user->getUserId();
+                $_SESSION['email'] = $user->getEmail();
+                $_SESSION['firstName'] = $user->getFirstName();
+                $_SESSION['lastName'] = $user->getLastName();
 
-                // Redirigez l'utilisateur vers la page d'accueil
+                // Redirigez l'utilisateur
                 $this->render('user_connect_valid', []);
             } else {
                 // Identifiants de connexion invalides, affichez un message d'erreur à l'utilisateur
-                $errorMessage = "Identifiants de connexion invalides. Veuillez réessayer.";
-                include('views/user_connect_form.php'); // Vous pouvez passer $errorMessage à la vue pour l'affichage
+                $errorMessage = "Identifiants de connexion invalides.";
+                $this->render('user_connect_form', ['errorMessage' => $errorMessage]);
             }
         }
     }

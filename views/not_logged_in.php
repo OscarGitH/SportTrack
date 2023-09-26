@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>SportTrack | Connexion réussie</title>
+    <title>SportTrack | ERREUR</title>
     <link rel="icon" type="image/png" href="img/Run_icon.png">
     <link rel="stylesheet" href="../views/index.css" media="screen" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     
     <main>
         <div class="conteneur">
-            <p class="explication">Connexion réussie !</p>
+            <p class="explication">Vous n'êtes pas connecté !</p>
             <a class="signuptext" href="/">Retour à l'accueil</a>
         </div>
     </main>

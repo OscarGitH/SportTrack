@@ -1,20 +1,19 @@
 body {
-    background-image: url(../../img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: Montserrat;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.5;
-    display: flex;
-    justify-content: center;
-    color: #303030;
-    margin-bottom: 100px; /* Ajout d'une valeur de marge inférieure */
-}
-
+  background-image: url(../../img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  color: #303030;
+  margin-bottom: 100;
+  }
 
 .formulaire {
-margin-top: auto;
+margin-top: 175;
 margin-bottom: auto;
 width: auto;
 border-radius: 18px;
@@ -44,7 +43,7 @@ margin-block-end: auto;
   font-weight: 600;
 }
 
-.formulaire form div input {
+.formulaire form div > input, form div > select {
   background: #d1d1d1;
   border: none;
   border-radius: 5px;
@@ -52,6 +51,19 @@ margin-block-end: auto;
   font-weight: 500;
   font-family: Montserrat, "sans-serif";
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+}
+
+form div > input:empty {
+  background: #d1d1d1;
+}
+
+.formulaire form div > select:invalid {
+  color: #303030;
+}
+
+.formulaire form div > select option {
+  background: white;
+  color: #303030;
 }
 
 .formulaire form button {
@@ -68,11 +80,11 @@ margin-block-end: auto;
 
 .formulaire button {
 font-family: Montserrat;
-padding: 5px;
 border: none;
 cursor: pointer;
 font-size: 16px;
 width: 600px;
+padding: 5px;
 font-weight: 600;
 border-radius: 5px;
 margin-block-end: 1em;
@@ -139,9 +151,3 @@ float: left;
 width: 250px;
 }
 
-.fichier{
-padding-left: 2;
-padding-top: 2;
-padding-bottom: 2;
-color: #303030;
-}

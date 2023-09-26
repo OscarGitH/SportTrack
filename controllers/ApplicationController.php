@@ -90,47 +90,51 @@ class ApplicationController{
      */
     public function process(){
         $path = $this->request_path();
-        if (array_key_exists($path, $this->routes)){
+        if (array_key_exists($path, $this->routes)) {
             $filePath = $this->routes[$path];
-            if(!str_ends_with($filePath, '.php')){
-                $filePath = $filePath.".php";    
+            if (!str_ends_with($filePath, '.php')) {
+                $filePath = $filePath . ".php";    
             }
             
-            require_once $filePath;
-            $ctrl_class = $this->file_get_php_classes($filePath)[0];
-            $controller = new $ctrl_class();
-            switch ($_SERVER['REQUEST_METHOD']) {
-            case 'GET': {
-                $controller->get($_REQUEST);
-                break;
+            if (file_exists($filePath)) {
+                require_once $filePath;
+    
+                $classes = $this->file_get_php_classes($filePath);
+    
+                // Vérifier si la classe existe et n'est pas vide
+                if (!empty($classes)) {
+                    $ctrl_class = $classes[0];
+                    
+                    if (class_exists($ctrl_class)) {
+                        $controller = new $ctrl_class();
+    
+                        // Vérifier si les méthodes GET, POST, PUT, DELETE existent dans le contrôleur
+                        if (method_exists($controller, $_SERVER['REQUEST_METHOD'])) {
+                            $method = $_SERVER['REQUEST_METHOD'];
+                            $controller->$method($_REQUEST);
+                        } else {
+                            // Si la méthode correspondante n'existe pas, appeler la méthode GET par défaut
+                            $controller->get($_REQUEST);
+                        }
+                    } else {
+                        // La classe du contrôleur n'existe pas, gestion d'erreur
+                        $this->routes['error'];
+                    }
+                } else {
+                    // Aucune classe n'a été trouvée dans le fichier, gestion d'erreur
+                    $this->routes['error'];
+                }
+            } else {
+                // Le fichier du contrôleur n'existe pas, gestion d'erreur
+                $this->routes['error'];
             }
-            case 'POST': {
-                $controller->post($_REQUEST);
-                break;
-            }
-                
-            case 'PUT': {
-                $controller->post($_REQUEST);
-                break;
-            }
-                
-            case 'DELETE': {
-                $controller->post($_REQUEST);
-                break;
-            }
-
-            default:
-                $controller->get($_REQUEST);
-                break;
-            }
-        }
-        // if (isset($this->routes[$path]) AND is_callable($this->routes[$path])) {
-        //     $this->routes[$path]();
-        // }
-        else {
+        } else {
+            // La route n'existe pas, gestion d'erreur
             $this->routes['error'];
         }
     }
+    
+      
 
 }
 ?>

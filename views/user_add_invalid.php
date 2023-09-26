@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>SportTrack | Connexion réussie</title>
+    <title>SportTrack | S'inscrire</title>
     <link rel="icon" type="image/png" href="img/Run_icon.png">
     <link rel="stylesheet" href="../views/index.css" media="screen" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +18,8 @@
     
     <main>
         <div class="conteneur">
-            <p class="explication">Connexion réussie !</p>
-            <a class="signuptext" href="/">Retour à l'accueil</a>
+            <p class="explication">Erreur lors de l'inscription : le mot de passe ne contient pas au moins 6 caractères, l'adresse mail n'est pas au bon format ou un utilisateur avec le même mail existe déjà.</p>
+            <a class="signuptext" href="/user_add">Retour au formulaire d'inscription</a>
         </div>
     </main>
 </body>

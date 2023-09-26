@@ -97,6 +97,7 @@ class UserDAO {
     
             // Execute the prepared statement
             $stmt->execute();
+            $user->setUserId($dbc->lastInsertId());
         }
     }    
     

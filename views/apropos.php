@@ -13,9 +13,13 @@
     <header>
         <div class="menu">
             <a href="/"><img src="img/sporttrack.png" alt="SportTrack Logo"></a>
-            <a href="connect">SE CONNECTER</a>
-            <a href="user_add">S'INSCRIRE</a>
-            <a class="myaccount" href="myaccount/myaccount.html">MON COMPTE</a>
+            <?php if (isset($_SESSION['userId'])): ?>
+                <a href="disconnect">SE DÉCONNECTER</a>
+                <a class="myaccount" href="my_account">MON COMPTE</a>
+            <?php else: ?>
+                <a href="connect">SE CONNECTER</a>
+                <a href="user_add">S'INSCRIRE</a>
+            <?php endif; ?>
         </div>
     </header>
 

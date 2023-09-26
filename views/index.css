@@ -29,6 +29,7 @@ body {
 .explication {
     font-size: 20px;
     margin-top: 0;
+    margin-bottom: 25px;
 }
 
 .signuptext {
@@ -130,4 +131,13 @@ footer {
     margin-top: 10px;
     text-decoration: none;
     color: #303030;
+}
+
+.myaccount {
+    color: rgb(255, 255, 236);
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: #303030;
+    text-decoration: none;
 }
