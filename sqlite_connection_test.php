@@ -2,15 +2,15 @@
 // SQLite test script
 // Author: Noé Pierre & Oscar Pavoine
 
-require_once('SqliteConnection.php');
-require_once('User.php');
-require_once('UserDAO.php');
+require_once('model/SqliteConnection.php');
+require_once('model/User.php');
+require_once('model/UserDAO.php');
 
-require_once('Activity.php');
-require_once('ActivityDAO.php');
+require_once('model/Activity.php');
+require_once('model/ActivityDAO.php');
 
-require_once('Data.php');
-require_once('DataDAO.php');
+require_once('model/Data.php');
+require_once('model/DataDAO.php');
 
 try {
     $dbc = SqliteConnection::getInstance()->getConnection();

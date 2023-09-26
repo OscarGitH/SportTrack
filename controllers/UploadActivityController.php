@@ -5,7 +5,7 @@ class UploadActivityController extends Controller {
     public function get($request) {
         $this->render('upload_activity_form', []);
     }
-/*
+
     // Méthode pour gérer la requête HTTP POST pour le téléchargement de fichiers
     public function post($request) {
         
@@ -73,6 +73,5 @@ class UploadActivityController extends Controller {
             $this->render('error', ['message' => 'Une erreur s\'est produite lors du téléchargement du fichier']);
         }
     }    
-    */
 }
 ?>
