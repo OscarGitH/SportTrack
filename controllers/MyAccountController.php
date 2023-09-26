@@ -1,12 +1,6 @@
 <?php
 require(__ROOT__.'/controllers/Controller.php');
 
-try {
-    $dbc = SqliteConnection::getInstance()->getConnection();
-} catch (PDOException $e) {
-    die("Erreur : " . $e->getMessage());
-}
-
 class MyAccountController extends Controller {
     public function get($request) {
         // Vérifiez si l'utilisateur est connecté

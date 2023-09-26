@@ -1,12 +1,6 @@
 <?php
 require(__ROOT__.'/controllers/Controller.php');
 
-try {
-    $dbc = SqliteConnection::getInstance()->getConnection();
-} catch (PDOException $e) {
-    die("Erreur : " . $e->getMessage());
-}
-
 class ConnectUserController extends Controller {
     public function get($request) {
         $this->render('user_connect_form', []);
