@@ -11,53 +11,11 @@
     <body>
     <div class=menu>
         <a href="/"><img src="img/sporttrack.png"></img></a>
-        <a href="views/upload/uploadfichier.html">AJOUTER UN FICHIER</a>
+        <a href="upload">AJOUTER UN FICHIER</a>
     </div>
-    <div class="formulaire">
-        <h1> Modifier mon profil </h1>
-        <form method="post">
-            <div>
-                <label for="nom">Votre nom</label>
-                <input type="text" id="nom" name="nom" placeholder="Nom" required>
-            </div>
-            <div>
-                <label for="prenom">Votre prénom</label>
-                <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
-            </div>
-            <div>
-                <label for="date-de-naissance">Votre date de naissance</label>
-                <input type="date" id="date-de-naissance" name="date-de-naissance" placeholder="JJ-MM-AAAA" required>
-            </div>
-            <div>
-                <label for="sexe">Votre sexe</label>
-                <select name="sexe" id="sexe" required>
-                    <option value="" disabled selected hidden>Cliquez pour répondre</option>
-                    <option value="M">Homme</option>
-                    <option value="F">Femme</option>
-                    <option value="Other">Ne préfère pas répondre</option>
-                 </select>
-            </div>
-            <div>
-                <label for="taille">Votre taille (en cm)</label>
-                <input type="number" id="taille" name="taille" placeholder="Exemple : 182" required>
-            </div>
-            <div>
-            <div>
-                <label for="poids">Votre poids (en kg)</label>
-                <input type="number" id="poids" name="poids" placeholder="Exemple : 75" required>
-                </div>
-            <div>
-                <label for="email">Votre e-mail</label>
-                <input type="text" id="email" name="email" placeholder="monadresse@mail.com" required>
-            </div>
-            <div>
-                <label for="password">Votre mot de passe </label>
-                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-            </div>
-            </div>
-            <button type="submit">Je valide mes changements</button>
-        </form>
-        <a href="/">Retourner à l'acceuil</a>
+    <div class="information">
+        <h1>Mes informations</h1>
+        <a href="/">Retourner à l'accueil</a>
     </div>
     </body>
 </html>

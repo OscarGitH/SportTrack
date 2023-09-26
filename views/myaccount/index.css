@@ -12,7 +12,7 @@ body {
   margin-bottom: 100;
   }
 
-.formulaire {
+.information {
 margin-top: 175;
 margin-bottom: auto;
 width: auto;
@@ -23,27 +23,27 @@ align-items: center;
 box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
 }
 
-.formulaire > h1 {
+.information > h1 {
   text-align: center;
 }
 
-.formulaire form {
+.information form {
 margin-block-end: auto;
 }
 
-.formulaire form div {
+.information form div {
   width: 100%;
   display: flex;
   flex-direction: column;
   min-height: 70px;
 }
 
-.formulaire form div > label {
+.information form div > label {
   margin-bottom: 7px;
   font-weight: 600;
 }
 
-.formulaire form div > input, form div > select {
+.information form div > input, form div > select {
   background: #d1d1d1;
   border: none;
   border-radius: 5px;
@@ -57,16 +57,16 @@ form div > input:empty {
   background: #d1d1d1;
 }
 
-.formulaire form div > select:invalid {
+.information form div > select:invalid {
   color: #303030;
 }
 
-.formulaire form div > select option {
+.information form div > select option {
   background: white;
   color: #303030;
 }
 
-.formulaire form button {
+.information form button {
   margin-top: 10px;
   background: #d1d1d1;
   font-family: Montserrat;
@@ -78,7 +78,7 @@ form div > input:empty {
   justify-content: center;
 }
 
-.formulaire button {
+.information button {
 font-family: Montserrat;
 border: none;
 cursor: pointer;
@@ -90,12 +90,12 @@ border-radius: 5px;
 margin-block-end: 1em;
 }
 
-.formulaire button:hover {
+.information button:hover {
 background: #bbbbbb;
 box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
 }
 
-.formulaire a {
+.information a {
 outline: none;
 text-decoration: none;
 font-family: Montserrat;
@@ -109,15 +109,15 @@ justify-content: center;
 margin-block-end: 1em;
 }
 
-.formulaire a:link {
+.information a:link {
 color: #303030;
 }
 
-.formulaire a:visited {
+.information a:visited {
 color: #303030;
 }
 
-.formulaire i {
+.information i {
 cursor: pointer;
 }
 
