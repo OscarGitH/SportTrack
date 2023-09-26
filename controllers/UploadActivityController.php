@@ -5,7 +5,7 @@ class UploadActivityController extends Controller {
     public function get($request) {
         $this->render('upload_activity_form', []);
     }
-
+    /*
     // Méthode pour gérer la requête HTTP POST pour le téléchargement de fichiers
     public function post($request) {
         
@@ -33,11 +33,11 @@ class UploadActivityController extends Controller {
                     $data['activity']['data'][0]['time'], // Vous pouvez ajuster cela en fonction de vos besoins
                     0.0, // Remplacez $distance par la distance calculée à partir des données
                     0.0, // Remplacez $averageSpeed par la vitesse moyenne calculée
-                    $maxSpeed, // Remplacez $maxSpeed par la vitesse maximale calculée
-                    $totalAltitude, // Remplacez $totalAltitude par l'altitude totale calculée
-                    $averageHeartRate, // Remplacez $averageHeartRate par la fréquence cardiaque moyenne calculée
-                    $maxHeartRate, // Remplacez $maxHeartRate par la fréquence cardiaque maximale calculée
-                    $minHeartRate // Remplacez $minHeartRate par la fréquence cardiaque minimale calculée
+                    0.0, // Remplacez $maxSpeed par la vitesse maximale calculée
+                    0.0, // Remplacez $totalAltitude par l'altitude totale calculée
+                    0, // Remplacez $averageHeartRate par la fréquence cardiaque moyenne calculée
+                    0, // Remplacez $maxHeartRate par la fréquence cardiaque maximale calculée
+                    0 // Remplacez $minHeartRate par la fréquence cardiaque minimale calculée
                 );
 
                 // Insérez la nouvelle activité dans la base de données
@@ -73,5 +73,6 @@ class UploadActivityController extends Controller {
             $this->render('error', ['message' => 'Une erreur s\'est produite lors du téléchargement du fichier']);
         }
     }    
+    */
 }
 ?>
