@@ -30,6 +30,7 @@
                 <a class="signuptext" href="user_add">Créer un compte</a>
             <?php else: ?>
                 <p class="explication">Bienvenue, <?php echo $_SESSION['firstName']; ?> !</p>
+                <p class="explication">Accédez à votre compte pour consulter vos données ou ajouter un nouveau fichier</p>
                 <a class="myaccount" href="my_account">MON COMPTE</a>
             <?php endif; ?>
         </div>
