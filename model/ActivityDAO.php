@@ -103,6 +103,9 @@ class ActivityDAO {
                 $stmt->bindValue(':activityId', $activity->getActivityId(), PDO::PARAM_INT);
             }
 
+            // ajouter l'id au Activity
+            $activity->setActivityId($dbc->lastInsertId());
+
             // Exécutez la requête préparée
             $stmt->execute();
         }

@@ -14,11 +14,23 @@ class Data {
     public function __construct() {}
 
     public function init(
-        $dataId, $activityId, $date, $description, $time, $heartRate, 
-        $latitude, $longitude, $altitude
+        $dataId,
+        $activityId,
+        $date,
+        $description,
+        $time,
+        $heartRate,
+        $latitude,
+        $longitude,
+        $altitude
     ) {
-        $this->dataId = $dataId; // Change from idDonnées to dataId
-        $this->activityId = $activityId;
+        // Vérifiez si $activityId est null avant de l'assigner
+        if ($activityId !== null) {
+            $this->activityId = $activityId;
+        }
+
+        // Assignez les autres propriétés normalement
+        $this->dataId = $dataId;
         $this->date = $date;
         $this->description = $description;
         $this->time = $time;
