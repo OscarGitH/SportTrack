@@ -15,7 +15,16 @@
     </div>
     <div class="information">
         <h1>Mes informations</h1>
+        
+        <p>Nom: <?php echo $user->getLastName(); ?></p>
+        <p>Prénom: <?php echo $user->getFirstName(); ?></p>
+        <p>Date de naissance: <?php echo $user->getBirthDate(); ?></p>
+        <p>Sexe: <?php echo $user->getGender(); ?></p>
+        <p>Taille: <?php echo $user->getHeight(); ?> cm</p>
+        <p>Poids: <?php echo $user->getWeight(); ?> kg</p>
+        <p>Email: <?php echo $user->getEmail(); ?></p>
+
         <a href="/">Retourner à l'accueil</a>
     </div>
-    </body>
+</body>
 </html>
