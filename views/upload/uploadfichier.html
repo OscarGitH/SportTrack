@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SportTrack | Mon compte</title>
+        <link rel="icon" type="image/png" href="img/Run_icon.png">
+        <link rel="stylesheet" href="index.css" media="screen" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class=menu>
+        <a href="../index.html"><img src="img/sporttrack.png"></img></a>
+        <a href="../myaccount/myaccount.html">MODIFIER MON COMPTE</a>
+    </div>
+    <div class="formulaire">
+        <h1> Ajouter un fichier </h1>
+        <form action="../site_en_construction/index.html" method="get">
+            <div>
+                <label for="nomfichier">Nom du fichier</label>
+                <input type="text" id="nom-fichier" name="nom-fichier" placeholder="Course du 23/10" required>
+            </div>
+            <div>
+                <label for="fichier">Ajouter votre fichier (fichier JSON uniquement)</label>
+                <input class="fichier" type="file" id="fichier" name="fichier" accept=".json" required>
+            </div>
+                <button type="submit">J'ajoute mon fichier</button>
+        </form>
+        <a href="../index.html">Retourner à l'acceuil</a>
+    </div>
+    </body>
+</html>

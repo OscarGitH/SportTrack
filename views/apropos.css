@@ -1,0 +1,104 @@
+body {
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Montserrat;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #303030;
+    margin: 0;
+    height: 100vh;
+}
+
+.about-me-container {
+    width: 300px;
+    padding: 20px;
+    background: rgb(255, 255, 236);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+    text-align: right;
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    background: rgb(255, 255, 236);
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25);
+}
+
+.menu a {
+    margin-right: 50px;
+    line-height: 75px;
+    text-decoration: none;
+    color: #303030;
+    font-family: Montserrat;
+    border: none;
+    margin-block-end: 0;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    color: #303030;
+    font-family: Montserrat;
+    border: none;
+}
+
+.menu img {
+    margin-top: 12.5px;
+    margin-left: 20px;
+    float: left;
+    width: 250px;
+}
+
+.menu .myaccount {
+    color: rgb(255, 255, 236);
+    padding: 10px;
+    width: 600px;
+    border-radius: 5px;
+    background: #303030;
+}
+
+.menu .myaccount:hover {
+    color: rgb(255, 255, 236);
+}
+
+header {
+    background: rgb(255, 255, 236);
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 10px 0;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+header a {
+    margin-right: 50px;
+    text-decoration: none;
+    color: #303030;
+    font-family: Montserrat;
+    font-weight: 600;
+}
+
+main {
+    text-align: center;
+    margin-top: 100px;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-weight: 600;
+    margin: 10px 0;
+}
