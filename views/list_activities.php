@@ -44,7 +44,6 @@
                     <th>Distance</th>
                     <th>Vitesse moyenne</th>
                     <th>Vitesse max</th>
-                    <th>Dénivelé</th>
                     <th>Fréquence cardiaque moyenne</th>
                     <th>Fréquence cardiaque max</th>
                     <th>Fréquence cardiaque min</th>
@@ -58,7 +57,6 @@
                         <td><?php echo $activity->getDistance(); ?></td>
                         <td><?php echo $activity->getAverageSpeed(); ?></td>
                         <td><?php echo $activity->getMaxSpeed(); ?></td>
-                        <td><?php echo $activity->getTotalAltitude(); ?></td>
                         <td><?php echo $activity->getAverageHeartRate(); ?></td>
                         <td><?php echo $activity->getMaxHeartRate(); ?></td>
                         <td><?php echo $activity->getMinHeartRate(); ?></td>
