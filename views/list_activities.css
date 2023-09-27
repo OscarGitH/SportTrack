@@ -124,11 +124,21 @@ body {
   .activities table {
     font-size: 10px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .activities table th {
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #303030;
+  }
+
+  .activities table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #303030;
   }
   
   .menu {

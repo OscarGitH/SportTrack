@@ -17,7 +17,7 @@
     <div class="activities">
         <h1>Mes activités</h1>
 
-        <table class="table">
+        <table>
             <tr>
                 <th>Date</th>
                 <th>Description</th>
