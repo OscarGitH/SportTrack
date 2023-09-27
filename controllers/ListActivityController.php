@@ -2,6 +2,7 @@
 require(__ROOT__.'/controllers/Controller.php');
 
 class ListActivityController extends Controller {
+    // cette fonction permet de récupérer la liste des activités de l'utilisateur connecté
     public function get($request) {
         // Vérifiez si l'utilisateur est connecté
         session_start();

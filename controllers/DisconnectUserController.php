@@ -2,6 +2,7 @@
 require(__ROOT__.'/controllers/Controller.php');
 
 class DisconnectUserController extends Controller {
+    // cette fonction permet de déconnecter l'utilisateur
     public function get($request) {
         // Démarrer la session
         session_start();

@@ -2,10 +2,12 @@
 require(__ROOT__.'/controllers/Controller.php');
 
 class AddUserController extends Controller {
+    // cette fonction permet d'afficher le formulaire d'inscription
     public function get($request) {
         $this->render('user_add_form', []);
     }
 
+    // cette fonction permet de traiter les données du formulaire d'inscription
     public function post($request): void {
         // Accédez aux valeurs du formulaire à partir de $request
         $lastName = $request['nom'];

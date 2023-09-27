@@ -2,10 +2,12 @@
 require(__ROOT__.'/controllers/Controller.php');
 
 class ConnectUserController extends Controller {
+    // cette fonction permet d'afficher le formulaire de connexion
     public function get($request) {
         $this->render('user_connect_form', []);
     }
 
+    // cette fonction permet de traiter les données du formulaire de connexion
     public function post($request): void {
         if (isset($request['email']) && isset($request['password'])) {
             $email = $request['email'];
