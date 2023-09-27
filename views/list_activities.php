@@ -17,6 +17,22 @@
     <div class="activities">
         <h1>Mes activités</h1>
 
+        <?php
+        usort($activities, function ($a, $b) {
+            $timestampA = strtotime($a->getDate());
+            $timestampB = strtotime($b->getDate());
+
+            if ($timestampA == $timestampB) {
+                return 0;
+            }
+            if ($timestampA < $timestampB) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+        ?>
+
         <?php if (empty($activities)) { ?>
             <p>Pas d'activités pour le moment.</p>
         <?php } else { ?>
