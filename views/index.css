@@ -92,6 +92,10 @@ body {
     background: #303030;
 }
 
+.menu .myaccount:hover {
+    color: rgb(255, 255, 236);
+}
+
 header {
     background: rgb(255, 255, 236);
     box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25);
