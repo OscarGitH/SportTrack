@@ -10,6 +10,9 @@ require_once('model/ActivityDAO.php');
 require_once('model/Data.php');
 require_once('model/DataDAO.php');
 
+require_once('CalculDistance/CalculDistance.php');
+require_once('CalculDistance/CalculDistanceImpl.php');
+
 try {
     $dbc = SqliteConnection::getInstance()->getConnection();
 } catch (PDOException $e) {
