@@ -30,22 +30,21 @@
                 <th>Fréquence cardiaque max</th>
                 <th>Fréquence cardiaque min</th>
             </tr>
-            <!--
+
             <?php foreach ($activities as $activity) { ?>
                 <tr>
-                    <td><?php echo $activity['date']; ?></td>
-                    <td><?php echo $activity['description']; ?></td>
-                    <td><?php echo $activity['time']; ?></td>
-                    <td><?php echo $activity['distance']; ?></td>
-                    <td><?php echo $activity['averageSpeed']; ?></td>
-                    <td><?php echo $activity['maxSpeed']; ?></td>
-                    <td><?php echo $activity['totalAltitude']; ?></td>
-                    <td><?php echo $activity['averageHeartRate']; ?></td>
-                    <td><?php echo $activity['maxHeartRate']; ?></td>
-                    <td><?php echo $activity['minHeartRate']; ?></td>
+                    <td><?php echo $activity->getDate(); ?></td>
+                    <td><?php echo $activity->getDescription(); ?></td>
+                    <td><?php echo $activity->getTime(); ?></td>
+                    <td><?php echo $activity->getDistance(); ?></td>
+                    <td><?php echo $activity->getAverageSpeed(); ?></td>
+                    <td><?php echo $activity->getMaxSpeed(); ?></td>
+                    <td><?php echo $activity->getTotalAltitude(); ?></td>
+                    <td><?php echo $activity->getAverageHeartRate(); ?></td>
+                    <td><?php echo $activity->getMaxHeartRate(); ?></td>
+                    <td><?php echo $activity->getMinHeartRate(); ?></td>
                 </tr>
             <?php } ?>
-            -->
         </table>
 
         <a href="/">Retourner à l'accueil</a>
