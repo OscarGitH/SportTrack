@@ -15,14 +15,14 @@
     </div>
     <div class="formulaire">
         <h1> Ajouter un fichier </h1>
-        <form action="../site_en_construction/index.html" method="get">
+        <form method="post" enctype="multipart/form-data">
             <div>
                 <label for="nomfichier">Nom du fichier</label>
                 <input type="text" id="nom-fichier" name="nom-fichier" placeholder="Course du 23/10" required>
             </div>
             <div>
                 <label for="fichier">Ajouter votre fichier (fichier JSON uniquement)</label>
-                <input class="fichier" type="file" id="fichier" name="fichier" accept=".json" required>
+                <input class="fichier" type="file" id="fichier" name="file" accept=".json" required>
             </div>
                 <button type="submit">J'ajoute mon fichier</button>
         </form>

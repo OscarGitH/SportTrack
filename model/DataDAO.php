@@ -90,7 +90,7 @@ class DataDAO {
 
             // Exécutez la requête préparée
             $stmt->execute();            
-            
+            $donnees->setDataId($dbc->lastInsertId());
         }
     }
     

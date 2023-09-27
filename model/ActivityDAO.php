@@ -105,6 +105,7 @@ class ActivityDAO {
 
             // Exécutez la requête préparée
             $stmt->execute();
+            $activity->setActivityId($dbc->lastInsertId());
         }
     }
 

@@ -32,6 +32,10 @@ class Data {
         return $this->dataId; // Change from idDonnées to dataId
     }
 
+    public function setDataId(int $dataId): void { // Change from setIdDonnées to setDataId
+        $this->dataId = $dataId; // Change from idDonnées to dataId
+    }
+
     public function getActivityId(): int { // Change from getLActivité to getActivityId
         return $this->activityId;
     }

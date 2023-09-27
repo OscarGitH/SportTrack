@@ -38,6 +38,10 @@ class Activity {
         return $this->activityId;
     }
 
+    public function setActivityId(int $activityId): void {
+        $this->activityId = $activityId;
+    }
+
     public function getUserId(): int {
         return $this->userId;
     }
