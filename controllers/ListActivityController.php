@@ -1,5 +1,4 @@
 <?php
-
 require(__ROOT__.'/controllers/Controller.php');
 
 class ListActivityController extends Controller {

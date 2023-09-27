@@ -9,6 +9,12 @@ require_once('model/ActivityDAO.php');
 
 require_once('model/Data.php');
 require_once('model/DataDAO.php');
+
+try {
+    $dbc = SqliteConnection::getInstance()->getConnection();
+} catch (PDOException $e) {
+    die("Erreur : " . $e->getMessage());
+}
 /**
  * Classe abstraite qui est étendue par les contrôleurs pour traiter
  * les requêtes HTTP POST, GET, ...
