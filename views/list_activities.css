@@ -170,5 +170,14 @@ body {
   float: left;
   width: 250px;
   }
+
+  .menu .myaccount {
+    color: rgb(255, 255, 236);
+    padding: 10px;
+    width: 600px;
+    border-radius: 5px;
+    background: #303030;
+}
+
   
   
