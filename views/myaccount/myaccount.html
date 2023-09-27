@@ -19,7 +19,8 @@
         <p>Nom: <?php echo $user->getLastName(); ?></p>
         <p>Prénom: <?php echo $user->getFirstName(); ?></p>
         <p>Date de naissance: <?php echo $user->getBirthDate(); ?></p>
-        <p>Sexe: <?php echo $user->getGender(); ?></p>
+        <!-- si le genre est "Other" écrire "Autre" -->
+        <p>Sexe: <?php if($user->getGender() == "Other") {echo "Autre";} else {echo $user->getGender();} ?></p>
         <p>Taille: <?php echo $user->getHeight(); ?> cm</p>
         <p>Poids: <?php echo $user->getWeight(); ?> kg</p>
         <p>Email: <?php echo $user->getEmail(); ?></p>

@@ -29,8 +29,7 @@
                 <p class="explication">SportTrack permet à des sportifs disposant d’une montre "cardio/gps" de pouvoir sauvegarder et gérer des données de position et de fréquence cardiaque</p>
                 <a class="signuptext" href="user_add">Créer un compte</a>
             <?php else: ?>
-                <p class="explication">Bienvenue, <?php echo $_SESSION['firstName']; ?> !</p>
-                <p class="explication">Accédez à votre compte pour consulter vos données ou ajouter un nouveau fichier</p>
+                <p class="explication">Bienvenue, <?php echo $_SESSION['firstName']; ?> !<br>Accédez à votre compte pour consulter vos données ou ajouter un nouveau fichier</p>
                 <a class="myaccount" href="my_account">MON COMPTE</a>
             <?php endif; ?>
         </div>
