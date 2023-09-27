@@ -55,12 +55,12 @@
                         <td><?php echo $activity->getDate(); ?></td>
                         <td><?php echo $activity->getDescription(); ?></td>
                         <td><?php echo $activity->getTime(); ?></td>
-                        <td><?php echo $activity->getDistance(); ?></td>
-                        <td><?php echo $activity->getAverageSpeed(); ?></td>
-                        <td><?php echo $activity->getMaxSpeed(); ?></td>
-                        <td><?php echo $activity->getAverageHeartRate(); ?></td>
-                        <td><?php echo $activity->getMaxHeartRate(); ?></td>
-                        <td><?php echo $activity->getMinHeartRate(); ?></td>
+                        <td><?php echo $activity->getDistance(); ?> km</td>
+                        <td><?php echo $activity->getAverageSpeed(); ?> km/h</td>
+                        <td><?php echo $activity->getMaxSpeed(); ?> km/h</td>
+                        <td><?php echo $activity->getAverageHeartRate(); ?> bpm</td>
+                        <td><?php echo $activity->getMaxHeartRate(); ?> bpm</td>
+                        <td><?php echo $activity->getMinHeartRate(); ?> bpm</td>
                     </tr>
                 <?php } ?>
             </table>
