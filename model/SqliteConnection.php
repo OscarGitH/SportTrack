@@ -3,7 +3,7 @@ class SqliteConnection {
     private static $instance = null;
     
     public static function getConnection() {
-        $db = new PDO('sqlite:model/sporttrack_db.db');
+        $db = new PDO('sqlite:db/sporttrack_db.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $db;
     }
