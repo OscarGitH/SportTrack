@@ -35,6 +35,7 @@
 
         <?php if (empty($activities)) { ?>
             <p>Pas d'activités pour le moment.</p>
+            <a class="upload" href="upload">Ajouter une activité</a>
         <?php } else { ?>
             <table>
                 <tr>
@@ -65,7 +66,7 @@
             </table>
         <?php } ?>
 
-        <a href="/">Retourner à l'accueil</a>
+        <a class="accueil" href="/">Retourner à l'accueil</a>
     </div>
 </body>
 </html>
