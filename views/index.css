@@ -34,13 +34,18 @@ body {
 }
 
 .signuptext {
-    font-size: 20px;
     font-weight: bold;
     color: #fff;
     text-decoration: none;
     padding: 10px 20px;
     background-color: #303030;
     border-radius: 5px;
+    font-size: 16px;
+    transition: font-size 0.4s;
+}
+
+.conteneur .signuptext:hover {
+    font-size: 17px;
 }
 
 .menu {
@@ -85,10 +90,6 @@ body {
     width: 600px;
     border-radius: 5px;
     background: #303030;
-}
-
-.menu .myaccount:hover {
-    color: rgb(255, 255, 236);
 }
 
 header {
