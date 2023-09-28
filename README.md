@@ -31,7 +31,7 @@ Pour plus d'informations, vous pouvez consulter le pdf "Présentation SportTrack
 
 ### Installation
 
-- Création de la base de données : `sqlite3 model/sporttrack.db < model/sporttrack.sql`
+- Création de la base de données (à partir du répertoire `db/`) : `sqlite3 sporttrack.db < sporttrack.sql`
 - Lancement du serveur (à la racine du projet) : `php -S localhost:8080`
 - Accès à l'application : http://localhost:8080
 
