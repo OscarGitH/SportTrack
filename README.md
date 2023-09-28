@@ -12,6 +12,15 @@ Les fonctionnalités :
 - Ajout d'une activité sportive à partir d'un fichier JSON
 - Consultation des activités sportives et des statistiques associées (distance, durée, vitesse moyenne, dénivelé...)
 
+Pour plus d'informations, vous pouvez consulter le pdf "Présentation du SportTrack.pdf"
+
+## Technologies utilisées
+
+- PHP 8.1
+- SQLite 3
+- HTML 5
+- CSS 3
+
 ## Installation
 
 ### Prérequis
