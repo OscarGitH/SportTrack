@@ -41,7 +41,7 @@
                 <tr>
                     <th>Date et heure de début</th>
                     <th>Description</th>
-                    <th>Temps</th>
+                    <th>Durée</th>
                     <th>Distance</th>
                     <th>Vitesse moyenne</th>
                     <th>Dénivelé</th>
