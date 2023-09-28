@@ -22,8 +22,6 @@ class UploadActivityController extends Controller {
             session_start();
 
             if (isset($_SESSION['userId']) && isset($data['data']) && is_array($data['data'])) {
-                // Vous pouvez maintenant utiliser ces données dans votre script
-                // Assurez-vous que les données ont été correctement extraites
                 if ($data) {
                     // Le reste de votre code pour traiter les données et les insérer dans la base de données
                     // Exemple : Créez une nouvelle activité
@@ -40,7 +38,8 @@ class UploadActivityController extends Controller {
                     $activity->init(
                         null, // Laissez l'ID de l'activité comme null pour qu'il soit généré automatiquement
                         $_SESSION['userId'],
-                        $data['activity']['date'],
+                        // date est la concatenation de la date et l'heure de début de l'activité
+                        $data['activity']['date']." ".$data['data'][0]['time'],
                         $description,
                         "00:00:00", // Vous pouvez ajuster cela en fonction de vos besoins
                         0.0, // Remplacez $distance par la distance calculée à partir des données
@@ -114,9 +113,9 @@ class UploadActivityController extends Controller {
             // Initialiser les variables pour les calculs
             $startTime = null;
             $endTime = null;
-            $totalDistance =  $calculDistance->calculDistanceTrajet($parcours);
+            // on divise par 1000 pour avoir la distance en km et on arrondi à 2 chiffres après la virgule
+            $totalDistance = round($calculDistance->calculDistanceTrajet($parcours)/1000, 2);
             $averageSpeed = 0.0; //v = D/T
-            $maxSpeed = 0.0; // on ne l'utilise pas
             $totalAltitude = 0.0; // on ne l'utilise pas
             $averageHeartRate = 0;
             $maxHeartRate = 0;
@@ -133,11 +132,22 @@ class UploadActivityController extends Controller {
                 if ($endTime === null || $dataEntry->getTime() > $endTime) {
                     $endTime = $dataEntry->getTime();
                 }
-                $averageHeartRate += ($dataEntry->getHeartRate() + $averageHeartRate);
-                $i+=1;
                 $maxHeartRate = max($maxHeartRate, $dataEntry->getHeartRate());
-                $minHeartRate = min($minHeartRate, $dataEntry->getHeartRate());
-            }    
+                // min ne peut pas être 0
+                if ($minHeartRate === 0) {
+                    $minHeartRate = $dataEntry->getHeartRate();
+                } else {
+                    $minHeartRate = min($minHeartRate, $dataEntry->getHeartRate());
+                }
+            } 
+            
+            // Calculer la fréquence cardiaque moyenne
+            foreach ($dataEntries as $dataEntry) {
+                $averageHeartRate += $dataEntry->getHeartRate();
+                $i++;
+            }
+
+            $averageHeartRate = $averageHeartRate/$i;
 
             // Calculer la durée totale de l'activité en secondes
             if ($startTime !== null && $endTime !== null) {
@@ -148,15 +158,27 @@ class UploadActivityController extends Controller {
                 $activityDuration = 0;
             }
 
-            $averageHeartRate = $averageHeartRate/$i;
-            $averageSpeed = $totalDistance/$activityDuration;
+            $averageSpeed = round($totalDistance/($activityDuration/3600), 2);
 
-    
+            //Calculer le dénivelé
+            //Pour calculer le dénivelé à partir des données fournies, vous pouvez suivre ces étapes :
+            //Calculez la différence d'altitude entre chaque paire de points consécutifs.
+            //Sommez toutes ces différences pour obtenir le dénivelé total.
+
+            // Calculer le dénivelé total
+            $totalAltitude = 0.0;
+            $previousAltitude = null;
+            foreach ($dataEntries as $dataEntry) {
+                if ($previousAltitude !== null) {
+                    $totalAltitude += abs($dataEntry->getAltitude() - $previousAltitude);
+                }
+                $previousAltitude = $dataEntry->getAltitude();
+            }
+  
             // Mettre à jour les propriétés de l'activité avec les valeurs calculées
             $activity->setTime($this->formatTime($activityDuration));
             $activity->setDistance($totalDistance);
             $activity->setAverageSpeed($averageSpeed);
-            $activity->setMaxSpeed($maxSpeed);
             $activity->setTotalAltitude($totalAltitude);
             $activity->setAverageHeartRate($averageHeartRate);
             $activity->setMaxHeartRate($maxHeartRate);

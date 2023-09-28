@@ -2,7 +2,7 @@
 require_once 'CalculDistanceImpl.php'; // Inclure la classe CalculDistanceImpl
 
 // Lire le fichier JSON externe
-$jsonData = file_get_contents('parcours.json'); // Assurez-vous que le chemin du fichier est correct
+$jsonData = file_get_contents('../CalculDistance/parcours.json');
 
 // Convertir le JSON en tableau associatif
 $data = json_decode($jsonData, true);

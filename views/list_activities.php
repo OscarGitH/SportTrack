@@ -39,12 +39,12 @@
         <?php } else { ?>
             <table>
                 <tr>
-                    <th>Date</th>
+                    <th>Date et heure<br>de début</th>
                     <th>Description</th>
                     <th>Temps</th>
                     <th>Distance</th>
                     <th>Vitesse moyenne</th>
-                    <th>Vitesse max</th>
+                    <th>Dénivelé</th>
                     <th>Fréquence cardiaque moyenne</th>
                     <th>Fréquence cardiaque max</th>
                     <th>Fréquence cardiaque min</th>
@@ -57,7 +57,7 @@
                         <td><?php echo $activity->getTime(); ?></td>
                         <td><?php echo $activity->getDistance(); ?> km</td>
                         <td><?php echo $activity->getAverageSpeed(); ?> km/h</td>
-                        <td><?php echo $activity->getMaxSpeed(); ?> km/h</td>
+                        <td><?php echo $activity->getTotalAltitude(); ?> m</td>
                         <td><?php echo $activity->getAverageHeartRate(); ?> bpm</td>
                         <td><?php echo $activity->getMaxHeartRate(); ?> bpm</td>
                         <td><?php echo $activity->getMinHeartRate(); ?> bpm</td>
