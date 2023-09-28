@@ -123,7 +123,7 @@ class DataDAO {
         if ($data instanceof Data) {
             $dbc = SqliteConnection::getInstance()->getConnection();
 
-            // Vérifiez si l'ID de la donnée existe dans la base de données
+            // Vérifie si l'ID de la donnée existe dans la base de données
             $checkQuery = "SELECT COUNT(*) FROM Data WHERE dataId = :dataId";
             $checkStmt = $dbc->prepare($checkQuery);
             $checkStmt->bindValue(':dataId', $data->getDataId(), PDO::PARAM_INT);
@@ -135,7 +135,7 @@ class DataDAO {
                 $query = "UPDATE Data SET activityId = :activityId, date = :date, description = :description, time = :time, heartRate = :heartRate, latitude = :latitude, longitude = :longitude, altitude = :altitude WHERE dataId = :dataId";
                 $stmt = $dbc->prepare($query);
 
-                // Liez les paramètres de mise à jour ici
+                // Lie les paramètres de mise à jour ici
                 $stmt->bindValue(':dataId', $data->getDataId(), PDO::PARAM_INT);
                 $stmt->bindValue(':activityId', $data->getActivityId(), PDO::PARAM_INT);
                 $stmt->bindValue(':date', $data->getDate(), PDO::PARAM_STR);
@@ -146,12 +146,11 @@ class DataDAO {
                 $stmt->bindValue(':longitude', $data->getLongitude(), PDO::PARAM_STR);
                 $stmt->bindValue(':altitude', $data->getAltitude(), PDO::PARAM_STR);
 
-                // Exécutez la requête préparée
+                // Exécute la requête préparée
                 $stmt->execute();
 
             } else {
                 // L'ID de la donnée n'existe pas dans la base de données
-                // Vous pouvez gérer cette situation selon vos besoins, par exemple, en lançant une exception.
                 throw new Exception("L'ID de la donnée n'existe pas dans la base de données.");
             }
         }

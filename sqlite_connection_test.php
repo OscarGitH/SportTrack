@@ -86,19 +86,19 @@ function testUser() {
     echo "Utilisateur lea supprimé avec succès.<br>";
 
     //modification de l'utilisateur oscar (changement de taille de 1.75 à 1.90)
-    // Créez un objet Utilisateur avec les nouvelles informations pour Oscar
+    // Crée un objet Utilisateur avec les nouvelles informations pour Oscar
     $oscarModifie = new User();
     $oscarModifie->init(2, "Oscar", "Pavoine", "01/11/2004", "M", 1.90, 80, "oscar@gmail.com", "motdepasse");
-    // Utilisez la méthode update pour mettre à jour Oscar
+    // Utilise la méthode update pour mettre à jour Oscar
     UserDAO::getInstance()->update($oscarModifie);
     echo "Utilisateur oscar mis à jour avec succès.<br>";
 
     //modification de l'utilisateur noe (changement de poids de 80 à 70 et du mail de noe@gmail à oscar@gmail.com) ne devrait pas fonctionner car le mail doit être unique
-    //Créez un objet Utilisateur avec les nouvelles informations pour Noé
+    //Crée un objet Utilisateur avec les nouvelles informations pour Noé
     $noeModifie = new User();
     $noeModifie->init(1, "Noé", "Pierre", "04/11/2004", "M", 1.95, 70, "oscar@gmail", "motdepasse");
 
-    //Utilisez la méthode update pour mettre à jour Noé (ne devrait pas fonctionner car le mail doit être unique)
+    //Utilise la méthode update pour mettre à jour Noé (ne devrait pas fonctionner car le mail doit être unique)
     echo "<br>Tentative de mise à jour de l'utilisateur noe avec un mail déjà existant (erreur attendue).<br>";
     try {
         UserDAO::getInstance()->update($noeModifie);
@@ -108,22 +108,22 @@ function testUser() {
     }
 
     //modification de l'utilisateur noe (changement de poids de 80 à 70 et du mail de noe@gmail à noee@gmail.com)
-    // Créez un objet Utilisateur avec les nouvelles informations pour Noé
+    // Crée un objet Utilisateur avec les nouvelles informations pour Noé
     $noeModifie2 = new User();
     $noeModifie2->init(1, "Noé", "Pierre", "04/11/2004", "M", 1.80, 70, "noee@gmail.com", "motdepasse");
-    //Utilisez la méthode update pour mettre à jour Noé
+    //Utilise la méthode update pour mettre à jour Noé
     UserDAO::getInstance()->update($noeModifie2);
     echo "Utilisateur noe mis à jour avec succès.<br>";
 
     //tentative de modification de l'utilisateur avec l'id 4 (qui n'existe pas)
-    //Créez un objet Utilisateur avec les nouvelles informations pour Noé
+    //Crée un objet Utilisateur avec les nouvelles informations pour Noé
     echo "<br>Tentative de mise à jour de l'utilisateur avec l'id 4 (qui n'existe pas) (erreur attendue).<br>";
     $sarahmodif = new User();
     $sarahmodif->init(3, "Sarah", "Test", "04/11/2004", "F", 1.80, 70, "sarah@gmail.com", "motdepasse");
     try {
         UserDAO::getInstance()->update($sarahmodif);
         echo "Modification de l'utilisateur avec l'id 4 avec succès.<br>";
-    }catch (Exception $e) { // Utilisez Exception ici
+    }catch (Exception $e) { // Utilise Exception ici
         echo "Erreur : " . $e->getMessage() . "<br><br>";
     }
     // OK, cela provoque une erreur car l'ID 4 n'existe pas dans la base de données
@@ -179,7 +179,7 @@ function testActivity() {
     ActivityDAO::getInstance()->resetAutoIncrement();
     echo "<br>Autoincrement de la table activite remis à 0 avec succès.<br><br>";
 
-    // Créez une instance de la classe Activite avec les données de l'activité
+    // Crée une instance de la classe Activite avec les données de l'activité
     $activite = new Activity();
     $activite->init(
         null, // L'ID de l'activité sera généré automatiquement
@@ -196,16 +196,16 @@ function testActivity() {
         90 // Fréquence cardiaque minimale
     );
 
-    // Insérez l'activité dans la base de données
+    // Insére l'activité dans la base de données
     ActivityDAO::getInstance()->insert($activite);
     echo "Activité insérée avec succès.<br>";
 
-    // Affichez l'activité avec l'ID 1
+    // Affiche l'activité avec l'ID 1
     $activite = ActivityDAO::getInstance()->find(1);
     echo "<br>Activité avec l'ID 1 :<br>";
     echo $activite . "<br><br>";
 
-    // Récupérez les activités de l'utilisateur avec l'email 'noee@gmail.com'
+    // Récupére les activités de l'utilisateur avec l'email 'noee@gmail.com'
     $activities = ActivityDAO::getInstance()->findByEmail("noee@gmail.com");
     if (count($activities) > 0) {
         echo "<br>Activités de l'utilisateur avec l'email 'noee@gmail.com' :<br>";
@@ -228,7 +228,7 @@ function testActivity() {
         echo "Aucune activité trouvée pour l'utilisateur avec l'email 'noee@gmail.com'.<br>";
     }
 
-    // Supprimez une activité (par exemple, avec ID 1)
+    // Supprime une activité (par exemple, avec ID 1)
     $activiteASupprimer = ActivityDAO::getInstance()->find(1);
     if ($activiteASupprimer) {
         ActivityDAO::getInstance()->delete($activiteASupprimer);
@@ -238,7 +238,7 @@ function testActivity() {
     }
 
 
-    // Créez une nouvelle instance de la classe Activite avec id 1
+    // Crée une nouvelle instance de la classe Activite avec id 1
     $activite = new Activity();
     $activite->init(
         2, // L'ID de l'activité 
@@ -255,7 +255,7 @@ function testActivity() {
         90 // Fréquence cardiaque minimale
     );
 
-    // Insérez l'activité dans la base de données
+    // Insére l'activité dans la base de données
     ActivityDAO::getInstance()->insert($activite);
     echo "Activité 1 insérée avec succès.<br>";
 
@@ -277,17 +277,17 @@ function testActivity() {
         90 // Fréquence cardiaque minimale
     );
 
-    // Insérez l'activité dans la base de données
+    // Insére l'activité dans la base de données
     ActivityDAO::getInstance()->insert($activite);
     echo "Activité insérée avec succès.<br>";
 
-    // Affichez l'activité avec l'ID 2
+    // Affiche l'activité avec l'ID 2
     $activite = ActivityDAO::getInstance()->find(2);
     echo "<br>Activité avec l'ID 2 :<br>";
     echo $activite . "<br><br>";
 
     // tentative de modification de l'activite avec l'id 2
-    // Créez une instance mise à jour de l'activité
+    // Crée une instance mise à jour de l'activité
     $activiteMiseAJour = new Activity();
     $activiteMiseAJour->init(
         2, // L'ID de l'activité sera généré automatiquement
@@ -304,7 +304,7 @@ function testActivity() {
         90 // Fréquence cardiaque minimale
     );
 
-    // Utilisez la méthode update pour mettre à jour l'activité
+    // Utilise la méthode update pour mettre à jour l'activité
     echo "<br>Tentative de mise à jour de l'activité avec l'id 2.<br>";
     try {
         ActivityDAO::getInstance()->update($activiteMiseAJour);
@@ -368,7 +368,7 @@ function testData() {
     DataDAO::getInstance()->resetAutoIncrement();
     echo "<br>Autoincrement de la table utilisateur remis à 0 avec succès.<br><br>";
 
-    // Créez une instance de la classe Données
+    // Crée une instance de la classe Données
     $donnee = new Data();
     $donnee->init(
         null, // L'ID de la donnée sera généré automatiquement
@@ -382,11 +382,11 @@ function testData() {
         15.8 // Altitude
     );
 
-    // Insérez les données dans la base de données
+    // Insére les données dans la base de données
     DataDAO::getInstance()->insert($donnee);
     echo "Données insérées avec succès.<br>";
 
-    // Affichez les données avec l'ID 1
+    // Affiche les données avec l'ID 1
     $donnees = DataDAO::getInstance()->find(1);
     echo "<br>Données avec l'ID 1 :<br>";
     echo $donnees . "<br><br>";
@@ -458,7 +458,7 @@ function testData() {
         15.8 // Altitude
     );
 
-    // Insérez les données dans la base de données
+    // Insére les données dans la base de données
     DataDAO::getInstance()->insert($donnees);
     DataDAO::getInstance()->insert($donnees2);
     echo "2 données de l'activité avec l'ID 2 insérées avec succès.<br>";
@@ -483,7 +483,7 @@ function testData() {
         echo "Aucune donnée trouvée pour l'activité avec l'ID 2.<br>";
     }
 
-    // Supprimez les données de l'activité avec l'ID 1
+    // Supprime les données de l'activité avec l'ID 1
     $donnees = DataDAO::getInstance()->findByActivityId(1);
     if (count($donnees) > 0) {
         foreach ($donnees as $donnee) {
@@ -495,7 +495,7 @@ function testData() {
     }
 
     // Modification de la donnée avec l'ID 2
-    // Créez une instance mise à jour de l'activité
+    // Crée une instance mise à jour de l'activité
     $donnees2MiseAJour = new Data();
     $donnees2MiseAJour->init(
         2, // L'ID de la donnée
@@ -509,7 +509,7 @@ function testData() {
         15.8 // Altitude
     );
 
-    // Utilisez la méthode update pour mettre à jour les données
+    // Utilise la méthode update pour mettre à jour les données
     DataDAO::getInstance()->update($donnees2MiseAJour);
     echo "Données avec l'ID 2 mise à jour avec succès.<br>";
 
