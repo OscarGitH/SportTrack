@@ -112,7 +112,7 @@ class UploadActivityController extends Controller {
 
     
             // Parcourir les données pour effectuer les calculs
-            foreach ($dataEntries as $dataEntry) {        
+            foreach ($dataEntries as $dataEntry) {     
                 // Mettre à jour les temps de début et de fin en fonction des données
                 if ($startTime === null || $dataEntry->getTime() < $startTime) {
                     $startTime = $dataEntry->getTime();
@@ -155,7 +155,7 @@ class UploadActivityController extends Controller {
             ActivityDAO::getInstance()->update($activity);
 
             // Rediriger l'utilisateur vers la page de récapitulation
-            $this->render('activities', []);
+            $this->render('activities', ['activities' => $activities]);
         } else {
             echo "erreur21";
             // Il n'y a pas de données associées à cette activité, renvoyez un message d'erreur à l'utilisateur
