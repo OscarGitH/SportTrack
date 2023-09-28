@@ -2,6 +2,8 @@
 
 ## Description
 
+Ce projet a été réalisé dans le cadre de la ressources R3.01 - Développement d'applications web de l'IUT Informatique de Vannes.
+
 SportTrack est une application web de suivi d'activités sportives.
 
 Les fonctionnalités :
