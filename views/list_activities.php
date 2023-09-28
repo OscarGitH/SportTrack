@@ -26,9 +26,9 @@
                 return 0;
             }
             if ($timestampA < $timestampB) {
-                return 1;
-            } else {
                 return -1;
+            } else {
+                return 1;
             }
         });
         ?>
@@ -39,7 +39,7 @@
         <?php } else { ?>
             <table>
                 <tr>
-                    <th>Date et heure<br>de début</th>
+                    <th>Date et heure de début</th>
                     <th>Description</th>
                     <th>Temps</th>
                     <th>Distance</th>
