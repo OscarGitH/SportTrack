@@ -12,8 +12,9 @@ class UploadActivityController extends Controller {
         if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES['file']['tmp_name']; // Utilisez 'tmp_name' pour obtenir le nom temporaire du fichier
 
-            // Lisez le contenu du fichier JSON téléchargé
+            // Lecture du contenu du fichier JSON téléchargé
             $jsonContent = file_get_contents($file);
+
 
             // Analysez le contenu JSON
             $data = json_decode($jsonContent, true);
@@ -22,17 +23,25 @@ class UploadActivityController extends Controller {
 
             if (isset($_SESSION['userId']) && isset($data['data']) && is_array($data['data'])) {
                 // Vous pouvez maintenant utiliser ces données dans votre script
-
                 // Assurez-vous que les données ont été correctement extraites
                 if ($data) {
                     // Le reste de votre code pour traiter les données et les insérer dans la base de données
                     // Exemple : Créez une nouvelle activité
                     $activity = new Activity();
+
+                    
+                    // On récupère la description de l'activité si elle est renseignée sinon on laisse la description de l'activité par défaut
+                    if (isset($_POST['description']) && !empty($_POST['description'])) {
+                        $description = $_POST['description'];
+                    } else {
+                        $description = $data['activity']['description'];
+                    }
+
                     $activity->init(
                         null, // Laissez l'ID de l'activité comme null pour qu'il soit généré automatiquement
                         $_SESSION['userId'],
                         $data['activity']['date'],
-                        $data['activity']['description'],
+                        $description,
                         "00:00:00", // Vous pouvez ajuster cela en fonction de vos besoins
                         0.0, // Remplacez $distance par la distance calculée à partir des données
                         0.0, // Remplacez $averageSpeed par la vitesse moyenne calculée
@@ -80,6 +89,10 @@ class UploadActivityController extends Controller {
                 // L'utilisateur n'est pas connecté, renvoyez un message d'erreur à l'utilisateur
                 $this->render('error', ['message' => 'Vous devez être connecté pour télécharger un fichier']);
             }
+
+            // Redirection vers la page d'accueil
+            header('Location: /activities');
+            exit; // Assurez-vous de quitter le script après la redirection
         } else {
             echo "erreur0";
             // Le fichier n'a pas été téléchargé avec succès, renvoyez un message d'erreur à l'utilisateur
