@@ -12,7 +12,7 @@ Les fonctionnalités :
 - Ajout d'une activité sportive à partir d'un fichier JSON
 - Consultation des activités sportives et des statistiques associées (distance, durée, vitesse moyenne, dénivelé...)
 
-Pour plus d'informations, vous pouvez consulter le [pdf "Présentation du SportTrack.pdf"]('Présentation_SportTrack.pdf') à la racine du projet.
+Pour plus d'informations, vous pouvez consulter le pdf "Présentation SportTrack"
 
 
 ## Technologies utilisées
