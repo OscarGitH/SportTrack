@@ -65,6 +65,38 @@ class User {
         $this->userId = $userId;
     }
 
+    public function setLastName($lastName): void {
+        $this->lastName = $lastName;
+    }
+
+    public function setFirstName($firstName): void {
+        $this->firstName = $firstName;
+    }
+
+    public function setBirthDate($birthDate): void {
+        $this->birthDate = $birthDate;
+    }
+
+    public function setGender($gender): void {
+        $this->gender = $gender;
+    }
+
+    public function setHeight($height): void {
+        $this->height = $height;
+    }
+
+    public function setWeight($weight): void {
+        $this->weight = $weight;
+    }
+
+    public function setEmail($email): void {
+        $this->email = $email;
+    }
+
+    public function setPassword($password): void {
+        $this->password = $password;
+    }
+
     public function __toString(): string {
         return "User : userId = " . $this->userId . ", lastName = " . $this->lastName . ", firstName = " . $this->firstName . ", birthDate = " . $this->birthDate . ", gender = " . $this->gender . ", height = " . $this->height . ", weight = " . $this->weight . ", email = " . $this->email . ", password = " . $this->password;
     }

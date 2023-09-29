@@ -88,7 +88,7 @@ class DataDAO {
                 $stmt->bindValue(':dataId', $donnees->getDataId(), PDO::PARAM_INT);
             }
 
-            // Exécutez la requête préparée
+            // Exécute la requête préparée
             $stmt->execute();            
             $donnees->setDataId($dbc->lastInsertId());
         }
@@ -98,12 +98,12 @@ class DataDAO {
     public function delete(Data $data): void {
         if ($data instanceof Data) {
             $dbc = SqliteConnection::getInstance()->getConnection();
-            // Préparez la requête SQL
+            // Prépare la requête SQL
             $query = "DELETE FROM Data WHERE dataId = :dataId";
             $stmt = $dbc->prepare($query);
-            // Liez les paramètres
+            // Lie les paramètres
             $stmt->bindValue(':dataId', $data->getDataId(), PDO::PARAM_INT);
-            // Exécutez la requête préparée
+            // Exécute la requête préparée
             $stmt->execute();
         }
     }
@@ -111,10 +111,10 @@ class DataDAO {
     // Delete all data
     public function deleteAll(): void {
         $dbc = SqliteConnection::getInstance()->getConnection();
-        // Préparez la requête SQL
+        // Prépare la requête SQL
         $query = "DELETE FROM Data";
         $stmt = $dbc->prepare($query);
-        // Exécutez la requête préparée
+        // Exécute la requête préparée
         $stmt->execute();
     }
 
@@ -159,10 +159,10 @@ class DataDAO {
     // Reset the auto increment
     public function resetAutoIncrement(): void {
         $dbc = SqliteConnection::getInstance()->getConnection();
-        // Préparez la requête SQL
+        // Prépare la requête SQL
         $query = "DELETE FROM sqlite_sequence WHERE name = 'Data'";
         $stmt = $dbc->prepare($query);
-        // Exécutez la requête préparée
+        // Exécute la requête préparée
         $stmt->execute();
     }
 }

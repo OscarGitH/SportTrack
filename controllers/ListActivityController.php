@@ -4,7 +4,7 @@ require(__ROOT__.'/controllers/Controller.php');
 class ListActivityController extends Controller {
     // cette fonction permet de récupérer la liste des activités de l'utilisateur connecté
     public function get($request) {
-        // Vérifiez si l'utilisateur est connecté
+        // Vérifie si l'utilisateur est connecté
         session_start();
         if (isset($_SESSION['userId'])) {
             // L'utilisateur est connecté, récupérez la liste des activités de l'utilisateur depuis la base de données
@@ -12,10 +12,10 @@ class ListActivityController extends Controller {
             $userId = $_SESSION['userId'];
             $activities = $activityDAO->findByIdUser($userId);
 
-            // Affichez la liste des activités
+            // Affiche la liste des activités
             $this->render('list_activities', ['activities' => $activities]);
         } else {
-            // L'utilisateur n'est pas connecté, redirigez l'utilisateur vers la page de connexion
+            // L'utilisateur n'est pas connecté, redirige l'utilisateur vers la page de connexion
             $this->render('user_connect_form', []);
         }
     }

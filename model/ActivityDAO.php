@@ -67,17 +67,17 @@ class ActivityDAO {
     public final function insert(Activity $activity): void {
         if ($activity instanceof Activity) {
             $dbc = SqliteConnection::getInstance()->getConnection();
-            // Préparez la requête SQL
+            // Prépare la requête SQL
             $query = "INSERT INTO Activity(userId, date, description, time, distance, averageSpeed, maxSpeed, totalAltitude, averageHeartRate, maxHeartRate, minHeartRate";
 
-            // Vérifiez si l'ID de l'activité est défini, si oui, incluez-le dans la requête
+            // Vérifie si l'ID de l'activité est défini, si oui, incluez-le dans la requête
             if ($activity->getActivityId() !== null) {
                 $query .= ", activityId";
             }
 
             $query .= ") VALUES (:userId, :date, :description, :time, :distance, :averageSpeed, :maxSpeed, :totalAltitude, :averageHeartRate, :maxHeartRate, :minHeartRate";
 
-            // Vérifiez si l'ID de l'activité est défini, si oui, liez-le à la requête
+            // Vérifie si l'ID de l'activité est défini, si oui, liez-le à la requête
             if ($activity->getActivityId() !== null) {
                 $query .= ", :activityId";
             }
@@ -85,7 +85,7 @@ class ActivityDAO {
             $query .= ")";
 
             $stmt = $dbc->prepare($query);
-            // Liez les paramètres
+            // Lie les paramètres
             $stmt->bindValue(':userId', $activity->getUserId(), PDO::PARAM_INT);
             $stmt->bindValue(':date', $activity->getDate(), PDO::PARAM_STR);
             $stmt->bindValue(':description', $activity->getDescription(), PDO::PARAM_STR);
@@ -98,12 +98,12 @@ class ActivityDAO {
             $stmt->bindValue(':maxHeartRate', $activity->getMaxHeartRate(), PDO::PARAM_INT);
             $stmt->bindValue(':minHeartRate', $activity->getMinHeartRate(), PDO::PARAM_INT);
 
-            // Vérifiez si l'ID de l'activité est défini, si oui, liez-le à la requête
+            // Vérifie si l'ID de l'activité est défini, si oui, liez-le à la requête
             if ($activity->getActivityId() !== null) {
                 $stmt->bindValue(':activityId', $activity->getActivityId(), PDO::PARAM_INT);
             }
 
-            // Exécutez la requête préparée
+            // Exécute la requête préparée
             $stmt->execute();
             $activity->setActivityId($dbc->lastInsertId());
         }
@@ -113,12 +113,12 @@ class ActivityDAO {
     public function delete(Activity $activity): void {
         if ($activity instanceof Activity) {
             $dbc = SqliteConnection::getInstance()->getConnection();
-            // Préparez la requête SQL
+            // Prépare la requête SQL
             $query = "DELETE FROM Activity WHERE activityId = :activityId";
             $stmt = $dbc->prepare($query);
-            // Liez les paramètres
+            // Lie les paramètres
             $stmt->bindValue(':activityId', $activity->getActivityId(), PDO::PARAM_INT);
-            // Exécutez la requête préparée
+            // Exécute la requête préparée
             $stmt->execute();
         }
     }
@@ -126,10 +126,10 @@ class ActivityDAO {
     // Delete all activities
     public function deleteAll(): void {
         $dbc = SqliteConnection::getInstance()->getConnection();
-        // Préparez la requête SQL
+        // Prépare la requête SQL
         $query = "DELETE FROM Activity";
         $stmt = $dbc->prepare($query);
-        // Exécutez la requête préparée
+        // Exécute la requête préparée
         $stmt->execute();
     }
 
@@ -138,7 +138,7 @@ class ActivityDAO {
         if ($activity instanceof Activity) {
             $dbc = SqliteConnection::getInstance()->getConnection();
 
-            // Vérifiez si l'ID de l'activité existe dans la base de données
+            // Vérifie si l'ID de l'activité existe dans la base de données
             $checkQuery = "SELECT COUNT(*) FROM Activity WHERE activityId = :activityId";
             $checkStmt = $dbc->prepare($checkQuery);
             $checkStmt->bindValue(':activityId', $activity->getActivityId(), PDO::PARAM_INT);
@@ -150,7 +150,7 @@ class ActivityDAO {
                 $query = "UPDATE Activity SET userId = :userId, date = :date, description = :description, time = :time, distance = :distance, averageSpeed = :averageSpeed, maxSpeed = :maxSpeed, totalAltitude = :totalAltitude, averageHeartRate = :averageHeartRate, maxHeartRate = :maxHeartRate, minHeartRate = :minHeartRate WHERE activityId = :activityId";
                 $stmt = $dbc->prepare($query);
 
-                // Liez les paramètres de mise à jour ici
+                // Lie les paramètres de mise à jour ici
                 $stmt->bindValue(':activityId', $activity->getActivityId(), PDO::PARAM_INT);
                 $stmt->bindValue(':userId', $activity->getUserId(), PDO::PARAM_INT);
                 $stmt->bindValue(':date', $activity->getDate(), PDO::PARAM_STR);
@@ -164,11 +164,10 @@ class ActivityDAO {
                 $stmt->bindValue(':maxHeartRate', $activity->getMaxHeartRate(), PDO::PARAM_INT);
                 $stmt->bindValue(':minHeartRate', $activity->getMinHeartRate(), PDO::PARAM_INT);;
 
-                // Exécutez la requête préparée
+                // Exécute la requête préparée
                 $stmt->execute();
             } else {
                 // L'ID de l'activité n'existe pas dans la base de données
-                // Vous pouvez gérer cette situation selon vos besoins, par exemple, en lançant une exception.
                 throw new Exception("L'ID de l'activité n'existe pas dans la base de données.");
             }
         }
@@ -177,10 +176,10 @@ class ActivityDAO {
     // Reset the auto increment
     public function resetAutoIncrement(): void {
         $dbc = SqliteConnection::getInstance()->getConnection();
-        // Préparez la requête SQL
+        // Prépare la requête SQL
         $query = "DELETE FROM sqlite_sequence WHERE name = 'Activity'";
         $stmt = $dbc->prepare($query);
-        // Exécutez la requête préparée
+        // Exécute la requête préparée
         $stmt->execute();
     }
 }

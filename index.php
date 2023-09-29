@@ -25,6 +25,11 @@ ApplicationController::getInstance()->addRoute('upload', CONTROLLERS_DIR.'/Uploa
 ApplicationController::getInstance()->addRoute('activities', CONTROLLERS_DIR.'/ListActivityController.php');
 ApplicationController::getInstance()->addRoute('my_account', CONTROLLERS_DIR.'/MyAccountController.php');
 
+ApplicationController::getInstance()->addRoute('modif_invalid', VIEWS_DIR.'/modif_invalid.php');
+ApplicationController::getInstance()->addRoute('modif_valid', VIEWS_DIR.'/modif_valid.php');
+
+ApplicationController::getInstance()->addRoute('connect_invalid', VIEWS_DIR.'/connect_invalid.php');
+
 // Process the request
 ApplicationController::getInstance()->process();
 ?>
